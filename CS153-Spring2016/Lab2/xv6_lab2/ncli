@@ -1,0 +1,57 @@
+./console.c:  cprintf("cpu%d: panic: ", cpu->id);
+./dot-bochsrc:# This defines cpu-related parameters inside Bochs:
+./kernel.asm:  cprintf("cpu%d: panic: ", cpu->id);
+./kernel.asm:  cprintf("cpu%d: panic: ", cpu->id);
+./kernel.asm:  cprintf("\ncpu%d: starting xv6\n\n", cpu->id);
+./kernel.asm:  cprintf("cpu%d: starting\n", cpu->id);
+./kernel.asm:  xchg(&cpu->started, 1); // tell startothers() we're up
+./kernel.asm:  return bcpu-cpus;
+./kernel.asm:            swtch(&cpu->scheduler, proc->context);
+./kernel.asm:    if(cpu->ncli != 1){
+./kernel.asm:    intena = cpu->intena;
+./kernel.asm:    swtch(&proc->context, cpu->scheduler);
+./kernel.asm:    cpu->intena = intena;
+./kernel.asm:  if(cpu->ncli++ == 0)
+./kernel.asm:    cpu->intena = eflags & FL_IF;
+./kernel.asm:  if(--cpu->ncli < 0)
+./kernel.asm:  if(cpu->ncli == 0 && cpu->intena)
+./kernel.asm:    if(cpu->id == 0){
+./kernel.asm:            cpu->id, tf->cs, tf->eip);
+./kernel.asm:            cpu->id, tf->cs, tf->eip);
+./kernel.asm:            cpu->id, tf->cs, tf->eip);
+./kernel.asm:              tf->trapno, cpu->id, tf->eip, rcr2());
+./kernel.asm:              tf->trapno, cpu->id, tf->eip, rcr2());
+./kernel.asm:            proc->pid, proc->name, tf->trapno, tf->err, cpu->id, tf->eip, 
+./kernel.asm:              tf->trapno, cpu->id, tf->eip, rcr2());
+./kernel.asm:            proc->pid, proc->name, tf->trapno, tf->err, cpu->id, tf->eip, 
+./kernel.asm:              tf->trapno, cpu->id, tf->eip, rcr2());
+./kernel.asm:            proc->pid, proc->name, tf->trapno, tf->err, cpu->id, tf->eip, 
+./kernel.asm:              tf->trapno, cpu->id, tf->eip, rcr2());
+./kernel.asm:            proc->pid, proc->name, tf->trapno, tf->err, cpu->id, tf->eip, 
+./kernel.asm:  // Initialize cpu-local storage.
+./kernel.asm:  cpu->gdt[SEG_TSS] = SEG16(STS_T32A, &cpu->ts, sizeof(cpu->ts)-1, 0);
+./kernel.asm:  cpu->gdt[SEG_TSS].s = 0;
+./kernel.asm:  cpu->ts.ss0 = SEG_KDATA << 3;
+./kernel.asm:  cpu->ts.esp0 = (uint)proc->kstack + KSTACKSIZE;
+./main.c:  cprintf("\ncpu%d: starting xv6\n\n", cpu->id);
+./main.c:  cprintf("cpu%d: starting\n", cpu->id);
+./main.c:  xchg(&cpu->started, 1); // tell startothers() we're up
+./mp.c:  return bcpu-cpus;
+./proc.c:            swtch(&cpu->scheduler, proc->context);
+./proc.c:    if(cpu->ncli != 1){
+./proc.c:    intena = cpu->intena;
+./proc.c:    swtch(&proc->context, cpu->scheduler);
+./proc.c:    cpu->intena = intena;
+./spinlock.c:  if(cpu->ncli++ == 0)
+./spinlock.c:    cpu->intena = eflags & FL_IF;
+./spinlock.c:  if(--cpu->ncli < 0)
+./spinlock.c:  if(cpu->ncli == 0 && cpu->intena)
+./trap.c:    if(cpu->id == 0){
+./trap.c:            cpu->id, tf->cs, tf->eip);
+./trap.c:              tf->trapno, cpu->id, tf->eip, rcr2());
+./trap.c:            proc->pid, proc->name, tf->trapno, tf->err, cpu->id, tf->eip, 
+./vm.c:  // Initialize cpu-local storage.
+./vm.c:  cpu->gdt[SEG_TSS] = SEG16(STS_T32A, &cpu->ts, sizeof(cpu->ts)-1, 0);
+./vm.c:  cpu->gdt[SEG_TSS].s = 0;
+./vm.c:  cpu->ts.ss0 = SEG_KDATA << 3;
+./vm.c:  cpu->ts.esp0 = (uint)proc->kstack + KSTACKSIZE;
